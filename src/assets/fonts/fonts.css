@@ -1,0 +1,80 @@
+/**
+ * Font Definitions for Marci Metzger Homepage
+ * 
+ * This file contains @font-face definitions for custom fonts.
+ * These fonts are loaded from the public/fonts/ directory and
+ * made available as CSS font families throughout the application.
+ */
+
+/* Editorial Old Font Family */
+@font-face {
+  font-family: 'Editorial Old';
+  src: url('/fonts/ppeditorialold-regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Editorial Old';
+  src: url('/fonts/PPEditorialOld-Ultralight.otf') format('opentype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Additional Editorial Old variants (if available) */
+@font-face {
+  font-family: 'Editorial Old';
+  src: url('/fonts/editorial-old-font-1747211837-0/ppeditorialold-ultralight.otf') format('opentype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Editorial Old';
+  src: url('/fonts/editorial-old-font-1747211837-0/ppeditorialold-ultrabold.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Editorial Old';
+  src: url('/fonts/editorial-old-font-1747211837-0/ppeditorialold-italic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Editorial Old';
+  src: url('/fonts/editorial-old-font-1747211837-0/ppeditorialold-ultralightitalic.otf') format('opentype');
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Editorial Old';
+  src: url('/fonts/editorial-old-font-1747211837-0/ppeditorialold-ultrabolditalic.otf') format('opentype');
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* CSS Custom Properties for Font Families */
+:root {
+  --font-editorial-old: 'Editorial Old', serif;
+  --font-inter: 'Inter', sans-serif;
+}
+
+/* Utility Classes */
+.font-editorial-old {
+  font-family: var(--font-editorial-old);
+}
+
+.font-inter {
+  font-family: var(--font-inter);
+}

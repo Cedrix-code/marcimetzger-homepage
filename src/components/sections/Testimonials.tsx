@@ -4,6 +4,31 @@ import { useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { gsap } from 'gsap';
 
+// Define testimonial data with unique IDs
+const testimonials = [
+  {
+    id: 'testimonial-1',
+    rating: 5,
+    text: "Marci made our first home buying experience so easy and stress-free. She was always available to answer our questions and went above and beyond to find us the perfect home.",
+    name: "Sarah & David Johnson",
+    role: "First-time Home Buyers"
+  },
+  {
+    id: 'testimonial-2',
+    rating: 5,
+    text: "We've worked with Marci on multiple transactions over the years. Her market knowledge and negotiation skills are unmatched. She consistently delivers results that exceed our expectations.",
+    name: "Michael Rodriguez",
+    role: "Property Investor"
+  },
+  {
+    id: 'testimonial-3',
+    rating: 5,
+    text: "Selling our family home of 25 years was emotional, but Marci guided us through the process with compassion and professionalism. She got us $50k over asking!",
+    name: "Patricia & Robert Wilson",
+    role: "Home Sellers"
+  }
+];
+
 export default function Testimonials() {
   const testimonialsRef = useRef<HTMLElement>(null);
 
@@ -19,7 +44,7 @@ export default function Testimonials() {
   }, []);
 
   return (
-    <section id="testimonials" ref={testimonialsRef} className="py-20 bg-gray-50">
+    <section id="testimonials" ref={testimonialsRef} className="py-20" style={{ backgroundColor: '#F1EBE2' }}>
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <motion.h2 
@@ -41,62 +66,33 @@ export default function Testimonials() {
         </div>
         
         <div className="grid md:grid-cols-3 gap-8">
-          <div className="testimonial-card bg-white p-8 rounded-lg shadow-lg">
-            <div className="flex items-center mb-4">
-              <div className="text-yellow-400 flex">
-                {[...Array(5)].map((_, i) => (
-                  <svg key={i} className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                  </svg>
-                ))}
+          {testimonials.map((testimonial) => (
+            <div key={testimonial.id} className="testimonial-card p-8 rounded-lg shadow-lg" style={{ backgroundColor: '#F1EBE2' }}>
+              <div className="flex items-center mb-4">
+                <div className="text-yellow-400 flex" role="img" aria-label="5 star rating">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <svg 
+                      key={`${testimonial.id}-star-${i}`}
+                      className="w-5 h-5" 
+                      fill="currentColor" 
+                      viewBox="0 0 20 20" 
+                      aria-hidden="true"
+                    >
+                      <title>{`Star ${i + 1}`}</title>
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  ))}
+                </div>
+              </div>
+              <p className="text-gray-700 mb-6">
+                &ldquo;{testimonial.text}&rdquo;
+              </p>
+              <div>
+                <p className="font-semibold text-blue-900">{testimonial.name}</p>
+                <p className="text-gray-600 text-sm">{testimonial.role}</p>
               </div>
             </div>
-            <p className="text-gray-700 mb-6">
-              &ldquo;Marci made our first home buying experience so easy and stress-free. She was always available to answer our questions and went above and beyond to find us the perfect home.&rdquo;
-            </p>
-            <div>
-              <p className="font-semibold text-blue-900">Sarah & David Johnson</p>
-              <p className="text-gray-600 text-sm">First-time Home Buyers</p>
-            </div>
-          </div>
-          
-          <div className="testimonial-card bg-white p-8 rounded-lg shadow-lg">
-            <div className="flex items-center mb-4">
-              <div className="text-yellow-400 flex">
-                {[...Array(5)].map((_, i) => (
-                  <svg key={i} className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                  </svg>
-                ))}
-              </div>
-            </div>
-            <p className="text-gray-700 mb-6">
-              &ldquo;We&apos;ve worked with Marci on multiple transactions over the years. Her market knowledge and negotiation skills are unmatched. She consistently delivers results that exceed our expectations.&rdquo;
-            </p>
-            <div>
-              <p className="font-semibold text-blue-900">Michael Rodriguez</p>
-              <p className="text-gray-600 text-sm">Property Investor</p>
-            </div>
-          </div>
-          
-          <div className="testimonial-card bg-white p-8 rounded-lg shadow-lg">
-            <div className="flex items-center mb-4">
-              <div className="text-yellow-400 flex">
-                {[...Array(5)].map((_, i) => (
-                  <svg key={i} className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                  </svg>
-                ))}
-              </div>
-            </div>
-            <p className="text-gray-700 mb-6">
-              &ldquo;Selling our family home of 25 years was emotional, but Marci guided us through the process with compassion and professionalism. She got us $50k over asking!&rdquo;
-            </p>
-            <div>
-              <p className="font-semibold text-blue-900">Patricia & Robert Wilson</p>
-              <p className="text-gray-600 text-sm">Home Sellers</p>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

@@ -1,8 +1,9 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: #F1EBE2;
   --foreground: #171717;
+  --seashell: #e0d3cc;
 }
 
 @theme inline {
@@ -39,9 +40,10 @@ html::-webkit-scrollbar {
 }
 
 body {
-  background: var(--background);
+  background-color: #F1EBE2;
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
-  @apply bg-white text-gray-800;
   overflow: auto; /* Restore scrolling */
 }
+
+

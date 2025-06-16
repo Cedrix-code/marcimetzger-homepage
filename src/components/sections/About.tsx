@@ -19,7 +19,7 @@ export default function About() {
   }, []);
 
   return (
-    <section id="about" ref={aboutRef} className="py-20 bg-gray-50">
+    <section id="about" ref={aboutRef} className="py-20" style={{ backgroundColor: '#F1EBE2' }}>
       <div className="container mx-auto px-6 about-content">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
@@ -53,15 +53,15 @@ export default function About() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="flex flex-wrap gap-4"
             >
-              <div className="bg-white p-4 rounded-lg shadow-md">
+              <div className="p-4 rounded-lg shadow-md" style={{ backgroundColor: '#F1EBE2' }}>
                 <p className="text-3xl font-bold text-blue-600">30+</p>
                 <p className="text-gray-600">Years Experience</p>
               </div>
-              <div className="bg-white p-4 rounded-lg shadow-md">
+              <div className="p-4 rounded-lg shadow-md" style={{ backgroundColor: '#F1EBE2' }}>
                 <p className="text-3xl font-bold text-blue-600">500+</p>
                 <p className="text-gray-600">Happy Clients</p>
               </div>
-              <div className="bg-white p-4 rounded-lg shadow-md">
+              <div className="p-4 rounded-lg shadow-md" style={{ backgroundColor: '#F1EBE2' }}>
                 <p className="text-3xl font-bold text-blue-600">$200M+</p>
                 <p className="text-gray-600">Sales Volume</p>
               </div>
@@ -73,7 +73,7 @@ export default function About() {
             transition={{ duration: 0.8, delay: 0.5 }}
             className="relative"
           >
-            <div className="absolute -top-4 -left-4 w-64 h-64 bg-blue-100 rounded-full opacity-50"></div>
+            <div className="absolute -top-4 -left-4 w-64 h-64 bg-blue-100 rounded-full opacity-50" />
             <img src="/api/placeholder/600/800" alt="Marci Metzger" className="relative z-10 rounded-lg shadow-xl w-full max-w-md mx-auto" />
           </motion.div>
         </div>

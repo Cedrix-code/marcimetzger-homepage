@@ -6,16 +6,16 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SplitText } from 'gsap/SplitText';
 
 // Layout components
-import Navigation from '../components/layout/Navigation';
-import Footer from '../components/layout/Footer';
+import Navigation from '@/components/layout/Navigation';
+import Footer from '@/components/layout/Footer';
 
 // Section components
-import Hero from '../components/sections/Hero';
-import About from '../components/sections/About';
-import Services from '../components/sections/Services';
-import Testimonials from '../components/sections/Testimonials';
-import FeaturedListings from '../components/sections/FeaturedListings';
-import Contact from '../components/sections/Contact';
+import Hero from '@/components/sections/Hero';
+import About from '@/components/sections/About';
+import Services from '@/components/sections/Services';
+import Testimonials from '@/components/sections/Testimonials';
+import FeaturedListings from '@/components/sections/FeaturedListings';
+import Contact from '@/components/sections/Contact';
 
 // Register GSAP plugins
 if (typeof window !== 'undefined') {
@@ -39,9 +39,9 @@ export default function Home() {
       });
 
       // Section headings animation
-      gsap.utils.toArray<HTMLElement>('.section-heading').forEach((heading) => {
+      for (const heading of gsap.utils.toArray<HTMLElement>('.section-heading')) {
         const split = new SplitText(heading, { type: 'lines,words,chars' });
-        
+
         gsap.from(split.chars, {
           opacity: 0,
           y: 50,
@@ -55,10 +55,10 @@ export default function Home() {
             toggleActions: 'play none none reverse'
           }
         });
-      });
+      }
 
       // Fade in sections
-      gsap.utils.toArray<HTMLElement>('.section').forEach((section) => {
+      for (const section of gsap.utils.toArray<HTMLElement>('.section')) {
         gsap.from(section, {
           opacity: 0,
           y: 50,
@@ -71,10 +71,10 @@ export default function Home() {
             toggleActions: 'play none none reverse'
           }
         });
-      });
+      }
 
       // Parallax effect for background elements
-      gsap.utils.toArray<HTMLElement>('.parallax-bg').forEach((bg) => {
+      for (const bg of gsap.utils.toArray<HTMLElement>('.parallax-bg')) {
         gsap.to(bg, {
           yPercent: 30,
           ease: 'none',
@@ -85,7 +85,7 @@ export default function Home() {
             scrub: true
           }
         });
-      });
+      }
     }, mainRef);
 
     return () => ctx.revert();
